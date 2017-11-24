@@ -10,17 +10,17 @@ exports.ConvertRToA = function(roman){
         var numchrs = r_nums[i].length;
         while( remainder.substr(0,numchrs) === r_nums[i]){
             if(rCount >= 3){
-                //more than 3 same character is not allowed
+                //More than 3 same character is not allowed
                 console.log('invalid number, more than 3 same characters');
                 return -1;
             } 
             if((count++) > 30){
-                //string should not be longer than 30
+                //String should not be longer than 30
                 console.log("string is longer than 30");
                 return -1;
             } 
             arabic += a_nums[i];
-            //subtract valid substring
+            //Subtract valid substring
             remainder = remainder.substr(numchrs,remainder.length-numchrs);
             rCount++;
         }
