@@ -10,7 +10,9 @@ router.post('/', function(req, res, next) {
     console.log("-------------------------------------\n", inputParagraph);
 
     processResult(inputParagraph, function(result){
-        console.log(`output is ${result}`)
+        console.log(`last output is ${result}`)
+        res.setHeader('Access-Control-Allow-Credentials', true);
+        console.log(JSON.stringify(result))
         res.send(JSON.stringify(result));
     })
 

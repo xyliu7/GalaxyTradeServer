@@ -9,8 +9,10 @@ exports.getMatches = function(regex, str) {
         });
     }
     //must be full match with the line
-    if(matches[0] !== str) {
-        matches = [];
+    if(matches.length > 0) {
+        if(matches[0].trim() !== str.trim()) {
+            matches = [];
+        }
     }
     return matches;
 };

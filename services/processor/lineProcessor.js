@@ -16,6 +16,7 @@ exports.processInput = function(input, callback) {
     //slpit input paragraph to lines
     var inputLines = eol.split(input);
     var outputLines = [];
+    var hasQuestion = false;
 
 
     const unitDefineRegex = /([a-z]+)\sis\s(\w)/;
@@ -28,8 +29,15 @@ exports.processInput = function(input, callback) {
         var line = inputLines[i].toString();
         var isQuestion = false;
         console.log(line, " (origin line)\n");
-        if(line.indexOf('?') !== -1){
+        if(/how much/.test(line)) {
+            console.log("contains how much")
+        }
+
+        if(line.indexOf('?') !== -1
+            || (/how much/.test(line)) 
+            || (/how many/.test(line)) ){
             isQuestion = true;
+            hasQuestion = true;
             console.log("this is a question.");
         }
         
@@ -180,6 +188,13 @@ exports.processInput = function(input, callback) {
 
         var invalidOp = "I have no idea what you are talking about";
         outputLines.push(invalidOp);
+    }
+
+    if(!hasQuestion) {
+        callback({
+            isValid: false,
+            reason: `No question entered.`
+        }); 
     }
 
     callback({
