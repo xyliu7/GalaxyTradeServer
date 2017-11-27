@@ -2,7 +2,7 @@
 This is a simple web server implemented in NodeJS, and it's used for resolve a simple calculation problem, it you are interested about
 the problem, I will post the problem at the end of this file.
 
-##Getting Started
+## Getting Started
 If you don't have NodeJS installed yet. Install it.
 - [NodeJS](https://nodejs.org/en/)
 
@@ -23,11 +23,11 @@ copy buid folder from frontend project, and paste in public folder.
 cd 'projectPath'
 nodemon
 ```
-Now, you can open your browser and access http://localhost:3000/
+Now, you can open your browser and access ``` http://localhost:3000/ ```
 
 
 
-##Problem Description
+## Problem Description
 GALAXY MERCHANT TRADING GUIDE
 You decided to give up on earth after the latest financial collapse left 99.99% of the earth's population with 0.01% of the wealth. 
 Luckily, with the scant sum of money that is left in your account, you are able to afford to rent a spaceship, leave earth, and fly 
