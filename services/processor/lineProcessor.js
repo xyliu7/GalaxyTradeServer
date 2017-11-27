@@ -29,6 +29,13 @@ exports.processInput = function(input, callback) {
         var line = inputLines[i].toString();
         var isQuestion = false;
         console.log(line, " (origin line)\n");
+        if(!line) {
+            callback({
+                isValid: true,
+                reason: outputLines.join('\r\n') 
+            });
+        }
+
         if(/how much/.test(line)) {
             console.log("contains how much")
         }
@@ -83,7 +90,7 @@ exports.processInput = function(input, callback) {
             if(defRes === -1) {
                 callback({
                     isValid: false,
-                    reason: `Incomplete expression.`
+                    reason: `Incomplete metal definition.`
                 });
                 return;
             }
@@ -162,7 +169,7 @@ exports.processInput = function(input, callback) {
             if(res === -1) {
                 callback({
                     isValid: false,
-                    reason: `Incomplete expression.`
+                    reason: `Incomplete credit question.`
                 });
                 return;
             }
@@ -199,7 +206,7 @@ exports.processInput = function(input, callback) {
 
     callback({
         isValid: true,
-        reason: outputLines
+        reason: outputLines.join('\r\n') 
     });
 
     console.log(`validate line output: \n${outputLines.join('\n')}`);
@@ -237,7 +244,7 @@ metalDefineProcess = function(metalMatches) {
     var values = metalMatches[1].split(" ");
     if(values.length < 2){
         //at least 2 words, metalName and unit
-        console.log("Incomplete expression");
+        console.log("Incomplete metal definition.");
         return -1;
     }
 
@@ -301,7 +308,7 @@ creditQProcess = function (creditQMatches) {
 
     if(values.length < 2){
         //at least 2 words, metalName and unit
-        console.log("Incomplete expression");
+        console.log("Incomplete credit question");
         return -1;
     }
 

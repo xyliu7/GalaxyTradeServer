@@ -2,6 +2,15 @@ var lineProcessor = require('./lineProcessor.js');
 var matcher = require('../matcher/matcher.js')
 
 exports.validateParagraph = function(paragraph, callback) {
+    //Empty input is not allowed
+    console.log(paragraph)
+    if(!paragraph) {
+        callback({
+            isValid: false,
+            reason: `Input is empty, please input something`
+        });
+        return;
+    }
 
     //Invalid Characters are not allowed
     let regex = /[^a-zA-Z0-9\?\s]/g;

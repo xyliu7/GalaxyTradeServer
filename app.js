@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var process_paragraph = require('./routes/paragraph_processor')
 var cors = require('cors');
 
 // use it before all route definitions
@@ -25,7 +26,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.use('/', express.static('public/build'));
+app.use('/process_paragraph/', process_paragraph)
 
 
 // catch 404 and forward to error handler
