@@ -1,10 +1,10 @@
 # GalaxyTradeServer
-This is a simple web server implemented in NodeJS, and it's used for resolve a simple calculation problem, it you are interested about
+This is a simple web server implemented in Node.js, and it's used for resolve a simple calculation problem, it you are interested about
 the problem, I will post the problem at the end of this file.
 
 ## Getting Started
 If you don't have NodeJS installed yet. Install it.
-- [NodeJS](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/)
 
 Now, let's assume that you have NodeJS installed already, you can start to set up this project:
 
